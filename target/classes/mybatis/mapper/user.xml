@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 파일명과 동일하게 -->
+<mapper namespace="user">
+	<!-- LoginController -->
+	<select id="login" resultType="mybatis.vo.UserVO"
+	                   parameterType="java.util.Map">
+		SELECT * FROM user_itClips
+		WHERE id = #{id}
+		AND pw = #{pw}
+	</select>
+	
+	<!-- RegisterController -->
+	<!-- 가입 -->
+	<insert id="join" parameterType="mybatis.vo.UserVO">
+		INSERT INTO user_itClips(id, pw, nickname, email, birthday, gender, profile_image, join_Date, grade)
+		VALUES(#{id}, #{pw}, #{nickname}, #{email}, #{birthday}, #{gender}, #{profile_image}, #{join_Date}, #{grade})
+	</insert>
+	
+	<!-- 수정 -->
+	<!-- 탈퇴 -->
+	
+</mapper>
