@@ -32,7 +32,9 @@
 		<constructor-arg ref="factory"/>
 	</bean>
 	
-	<!-- DAO : bbsDao, commDao, userDao-->
+	<!-- DAO : userDao, categoryDao -->
 	<bean id="userDao" class="mybatis.dao.UserDAO"/>
-		
+	<bean id="categoryDao" class="mybatis.dao.CategoryDAO"/>
+	<!-- <context:component-scan base-package="mybatis.dao"/> -->
+
 </beans>

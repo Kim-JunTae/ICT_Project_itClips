@@ -41,6 +41,6 @@
     	<beans:property name="maxUploadSize" value="-1"/>	
     </beans:bean>
 	
-	<context:component-scan base-package="com.ict.itClips" />
+	<context:component-scan base-package="com.ict.itClips"/>
 	
 </beans:beans>

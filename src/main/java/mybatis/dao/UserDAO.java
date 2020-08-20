@@ -14,6 +14,11 @@ public class UserDAO {
 	//로그인 : LoginController
 	public UserVO login(Map<String, String> map) {
 		return template.selectOne("user.login", map);
-	}
+	}//end login()
+	
+	//아이디 중복 체크 : JoinController
+	public UserVO getUser(String id) {
+		return template.selectOne("user.get_user", id);
+	}//end getUser()
 	
 }

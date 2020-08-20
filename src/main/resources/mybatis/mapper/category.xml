@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 파일명과 동일하게 -->
+<mapper namespace="category">
+	<!-- CategoryController -->
+	<!-- 카테고리 List -->
+	<select id="get_categoryList" resultType="mybatis.vo.CategoryVO">
+		SELECT * FROM itclips_category
+		WHERE status = 0
+	</select>
+	
+</mapper>

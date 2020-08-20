@@ -17,11 +17,6 @@ public class HomeController {
 		return "userHome";
 	}
 	
-	@RequestMapping(value="join", method = RequestMethod.GET)
-	public String join() {
-		return "join";
-	}
-	
 	@RequestMapping(value="myPage", method = RequestMethod.GET)
 	public String myPage() {
 		return "myPage";
