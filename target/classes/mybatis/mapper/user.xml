@@ -13,16 +13,29 @@
 	</select>
 	
 	<!-- JoinController -->
+	<!-- 동적 쿼리로 합치자 -->
 	<!-- id 중복 검사 -->
 	<select id="get_user" parameterType="String" resultType="mybatis.vo.UserVO">
 		SELECT * FROM itClips_user
 		WHERE id = #{id}
 	</select>
 	
+	<!-- nickname 중복 검사 -->
+	<select id="get_nickname" parameterType="String" resultType="mybatis.vo.UserVO">
+		SELECT * FROM itClips_user
+		WHERE nickname = #{nickname}
+	</select>
+	
+	<!-- email 중복 검사 -->
+	<select id="get_email" parameterType="String" resultType="mybatis.vo.UserVO">
+		SELECT * FROM itClips_user
+		WHERE email = #{email}
+	</select>
+	
 	<!-- 가입 -->
 	<insert id="join" parameterType="mybatis.vo.UserVO">
-		INSERT INTO itClips_user(id, pw, nickname, email, birthday, gender, profile_image, join_Date, grade, category)
-		VALUES(#{id}, #{pw}, #{nickname}, #{email}, #{birthday}, #{gender}, #{profile_image}, #{join_Date}, #{grade}, #{category})
+		INSERT INTO itClips_user(id, pw, nickname, email, birthday, gender, join_Date, grade, category)
+		VALUES(#{id}, #{pw}, #{nickname}, #{email}, #{birthday}, #{gender}, sysdate, #{grade}, #{category})
 	</insert>
 	
 	<!-- 수정 -->

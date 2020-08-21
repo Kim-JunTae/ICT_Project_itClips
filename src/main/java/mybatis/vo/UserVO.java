@@ -14,5 +14,6 @@ public class UserVO {
 			profile_image,
 			join_Date,
 			withdraw_Date,
-			grade;
+			grade,
+			category;
 }
