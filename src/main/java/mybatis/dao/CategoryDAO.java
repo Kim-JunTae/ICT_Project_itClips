@@ -15,7 +15,7 @@ public class CategoryDAO {
 	public CategoryVO[] getCategoryList() {
 		CategoryVO[] ar = null;
 		
-		List<CategoryVO> list = template.selectList("category.get_categoryList");
+		List<CategoryVO> list = template.selectList("category.get_categoryHighList");
 		if(list != null && list.size() > 0) {
 			ar = new CategoryVO[list.size()];
 			list.toArray(ar);
