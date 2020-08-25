@@ -21,11 +21,15 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="userHome" class="logo"><strong><h2>itClips</h2></strong></a>
+									<a href="userHome" class="logo"><strong><span>itClips</span></strong></a>
+									<!-- 로그인 닉네임 체크 -->
+									<c:if test="${sessionScope.nickname ne null}">
+										<span>${sessionScope.nickname}님 안녕하세요</span>
+									</c:if>
 									<!-- itClipsButton -->
-									<section id="itClipsBtn" class="alt">
+									<!-- <section id="itClipsBtn" class="alt">
 										<input type="button" value="itclips">
-									</section>
+									</section> -->
 									<!-- Search -->
 									<section id="search" class="alt">
 										<form method="post" action="#">
@@ -34,16 +38,51 @@
 									</section>
 								</header>
 							
-							<!-- 로그인 닉네임 체크 -->
-								<br>
-								<c:if test="${sessionScope.nickname ne null}">
-									<h4>${sessionScope.nickname}님 안녕하세요</h4>
-								</c:if>
+							<!-- Banner : Ajax -->
+								<section>
+								<header class="major">
+									<h2>${boxofficeType}</h2>
+								</header>
+	
+								<!-- Table -->
+								<div class="table-wrapper">
+									<table>
+										<thead>
+											<tr>
+												<th>순번</th>
+												<th>영화명</th>
+												<th>매출액</th>
+												<th>관객수</th>
+												<th>증감율</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:if test="${boxOfficeList ne null}">
+											<c:forEach items="${boxOfficeList}" var="boxOffice">
+												<tr>
+													<th>${boxOffice.rnum }</th>
+													<th><a href="ajax">${boxOffice.movieNm }</a></th>
+													<th>${boxOffice.salesAmt }</th>
+													<th>${boxOffice.audiCnt }</th>
+													<th>${boxOffice.audiChange }</th>
+												</tr>
+											</c:forEach>
+											</c:if>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="4"></td>
+												<td>${showRange}날짜 기준</td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+								</section>
 							
 							<!-- Section -->
 								<section>
 									<header class="major">
-										<h2>hotClips</h2>
+										<h2>YouTube</h2>
 									</header>
 									<div class="posts">
 										<article>
@@ -82,32 +121,38 @@
 								<!-- Section -->
 								<section>
 									<header class="major">
-										<h2>Category</h2>
+										<h2>Blog</h2>
 									</header>
-									<div class="features">
+									<div class="posts">
 										<article>
-											<span class="icon fa-gem"></span>
-											<div class="content">
-												<h3>카테고리1</h3>
-											</div>
+											<a href="#" class="image"><img src="resources/images/pic01.jpg" alt="" /></a>
+											<h3>블로그1</h3>
+											<p>블로그1에 대한 설명</p>
 										</article>
 										<article>
-											<span class="icon solid fa-paper-plane"></span>
-											<div class="content">
-												<h3>카테고리2</h3>
-											</div>
+											<a href="#" class="image"><img src="resources/images/pic02.jpg" alt="" /></a>
+											<h3>블로그2</h3>
+											<p>블로그2에 대한 설명</p>
 										</article>
 										<article>
-											<span class="icon solid fa-rocket"></span>
-											<div class="content">
-												<h3>카테고리3</h3>
-											</div>
+											<a href="#" class="image"><img src="resources/images/pic03.jpg" alt="" /></a>
+											<h3>블로그3</h3>
+											<p>블로그3에 대한 설명</p>
 										</article>
 										<article>
-											<span class="icon solid fa-signal"></span>
-											<div class="content">
-												<h3>카테고리4</h3>
-											</div>
+											<a href="#" class="image"><img src="resources/images/pic04.jpg" alt="" /></a>
+											<h3>블로그4</h3>
+											<p>블로그4에 대한 설명</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="resources/images/pic05.jpg" alt="" /></a>
+											<h3>블로그5</h3>
+											<p>블로그5에 대한 설명</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="resources/images/pic06.jpg" alt="" /></a>
+											<h3>블로그6</h3>
+											<p>블로그6에 대한 설명</p>
 										</article>
 									</div>
 								</section>
@@ -254,6 +299,40 @@
 			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 			
 			<script src="resources/js/sidebar.js"></script>
+			<script>
+				$(window).load(function() {
+				    // 로딩되기 시작할때
+					$.ajax({
+						url: "searchDailyBoxOffice",
+						type: "GET",
+						dataType: "JSON"
+						
+					}).done(function(data){
+						
+					}).fail(function(err){
+						console.log(err);
+					});
+				});
+				
+				$(document).ready(function() { 
+					$.ajax({
+						url:"test",
+						dataType:"json"
+					})
+					
+					$.getJSON("result.json", function(data) {
+						var items = [];
+						$.each(data, function(key, val){
+							items.push("<li id='"+ key +"'>" + val + "</li>");
+						});
+						
+						$("<ul/>", {
+							"class" : "my-new-list",
+							html: items.join("")
+						}).appendTo("body");
+					});
+				});
+			</script>
 
 	</body>
 </html>

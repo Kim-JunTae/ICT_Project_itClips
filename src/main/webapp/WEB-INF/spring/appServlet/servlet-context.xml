@@ -23,17 +23,17 @@
 	</beans:bean>
 	
 	<!-- 비동기식 통신을 위한 객체들 -->
-	<beans:bean id="jsonHttpMessageConverter"
-		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
-	<beans:bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	<!-- <beans:bean id="jsonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+	<beans:bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<beans:property name="messageConverters">
 			<beans:list>
 				<beans:ref bean="jsonHttpMessageConverter" />
 			</beans:list>
 		</beans:property>
-	</beans:bean>
+	</beans:bean> -->
 
+	
 	<!-- springframework.web에 있는 CommonsMultipartResolver 파일첨부 -->
     <beans:bean id="multipartResolver" 
     class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

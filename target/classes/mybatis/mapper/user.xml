@@ -10,10 +10,12 @@
 		SELECT * FROM itClips_user
 		WHERE id = #{id}
 		AND pw = #{pw}
+		AND status = 0
 	</select>
 	
 	<!-- JoinController -->
 	<!-- 동적 쿼리로 합치자 -->
+	<!-- 중복 검사 동적 쿼리 -->
 	<!-- id 중복 검사 -->
 	<select id="get_user" parameterType="String" resultType="mybatis.vo.UserVO">
 		SELECT * FROM itClips_user
@@ -39,5 +41,6 @@
 	</insert>
 	
 	<!-- 수정 -->
+	
 	<!-- 탈퇴 -->
 </mapper>

@@ -1,83 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="UTF-8">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Intro</title>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Intro</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="resources/css/main.css"/>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
 
-	<!-- Bootstrap core CSS -->
-	<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+				<!-- Header -->
+				<header id="header">
+					<h1><a href="#">itClips</a></h1>
+					<p>Movie Platform &nbsp;&bull;&nbsp; ICT_TEAM 1 &nbsp;&bull;&nbsp; KimJunTae, JungHyunJin</p>
+					<nav>
+						<ul>
+							<li><a href="#" class="icon solid fa-icons"><span class="label">Creator</span></a></li>
+							<li><a href="userHome" class="icon solid fa-video"><span class="label">User</span></a></li>
+						</ul>
+					</nav>
+				</header>
 
-    <!-- Custom styles for this template -->
-    <link href="resources/css/cover.css" rel="stylesheet">
-    <style>
-		.bd-placeholder-img {
-		  font-size: 1.125rem;
-		  text-anchor: middle;
-		  -webkit-user-select: none;
-		  -moz-user-select: none;
-		  -ms-user-select: none;
-		  user-select: none;
-		}
-		
-		@media (min-width: 768px) {
-		  .bd-placeholder-img-lg {
-		    font-size: 3.5rem;
-		  }
-		}
-		   
-		#left{
-			text-align: center;
-			width: 50%;
-			height: 100%;
-			float: left;
-		}
-		
-		#right{
-			text-align: center;
-			width: 50%;
-			height: 100%;
-			float: right;
-		}
-    </style>
-  </head>
-  <body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="masthead mb-auto">
-    <div class="inner">
-      <h3 class="masthead-brand">itClips</h3>
-    </div>
-  </header>
+				<!-- Footer -->
+				<footer id="footer">
+					<span class="copyright">&copy; itClips. 2020.08 <a href="#">Go Admin Page</a></span>
+					<a href="https://github.com/Kim-JunTae/ICT_Project_itClips" class="icon brands fa-github"><span class="label">Github</span></a>
+				</footer>
 
-  <main role="main" class="inner cover">
-  	<div id="left">
-  		<a href="creatorHome">
-	  		<h1 class="cover-heading">Creator</h1>
-		    <p class="lead">Creator 설명</p>
-		    <p class="lead">
-		      <a href="#" class="btn btn-lg btn-secondary">Go Creator Home</a>
-		    </p>
-  		</a>
-  	</div>
-	
-	<div id="right">
-		<a href="userHome">
-			<h1 class="cover-heading">User</h1>
-		    <p class="lead">User 설명</p>
-		    <p class="lead">
-		      <a href="userHome" class="btn btn-lg btn-secondary">Go User Home</a>
-		    </p>
-		</a>
-	</div>
-  </main>
-
-  <footer class="mastfoot mt-auto">
-    <div class="inner">
-      <p>itClips. 2020.08 <a href="#">Go Admin Page</a>, by <a href="#">Go Github</a>.</p>
-    </div>
-  </footer>
-</div>
-</body>
+			</div>
+		</div>
+		<script>
+			window.onload = function() { document.body.classList.remove('is-preload'); }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+		</script>
+	</body>
 </html>

@@ -31,7 +31,6 @@ public class LoginController {
 	public Map<String, String> login(UserVO vo) {
 		Map<String, String> check = new Hashtable<String, String>();
 		
-		
 		Map<String, String> map = new Hashtable<String, String>();
 		map.put("id", vo.getId());
 		map.put("pw", vo.getPw());
