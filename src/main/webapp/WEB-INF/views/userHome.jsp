@@ -9,7 +9,34 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="resources/assets/css/main.css"/>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<!-- owlCarousel 추가 -->
+		<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+		<link rel="stylesheet" href="resources/owlcarousel/assets/owl.carousel.min.css">
+		<link rel="stylesheet" href="resources/owlcarousel/assets/owl.theme.default.min.css">	
+		<script src="resources/owlcarousel/owl.carousel.min.js"></script>
+
+		<style>
+			button {
+				box-shadow: none;
+			}
+			
+			#owl-demo .item{
+	  			margin: 3px;
+			}
+			
+			#owl-demo .item img{
+			  display: block;
+			  width: 20%;
+			  height: auto;
+			}
+			
+			.owl-carousel .owl-video-wrapper {
+				height: 200px;
+			}
+			
+		</style>
 	</head>
+
 	<body class="is-preload">
 
 		<!-- Wrapper -->
@@ -26,6 +53,7 @@
 									<c:if test="${sessionScope.nickname ne null}">
 										<span>${sessionScope.nickname}님 안녕하세요</span>
 									</c:if>
+							
 									<!-- itClipsButton -->
 									<!-- <section id="itClipsBtn" class="alt">
 										<input type="button" value="itclips">
@@ -40,85 +68,34 @@
 							
 							<!-- Banner : Ajax -->
 								<section>
-								<header class="major">
-									<h2>${boxofficeType}</h2>
-								</header>
-	
-								<!-- Table -->
-								<div class="table-wrapper">
-									<table>
-										<thead>
-											<tr>
-												<th>순번</th>
-												<th>영화명</th>
-												<th>매출액</th>
-												<th>관객수</th>
-												<th>증감율</th>
-											</tr>
-										</thead>
-										<tbody>
-											<c:if test="${boxOfficeList ne null}">
-											<c:forEach items="${boxOfficeList}" var="boxOffice">
-												<tr>
-													<th>${boxOffice.rnum }</th>
-													<th><a href="ajax">${boxOffice.movieNm }</a></th>
-													<th>${boxOffice.salesAmt }</th>
-													<th>${boxOffice.audiCnt }</th>
-													<th>${boxOffice.audiChange }</th>
-												</tr>
-											</c:forEach>
-											</c:if>
-										</tbody>
-										<tfoot>
-											<tr>
-												<td colspan="4"></td>
-												<td>${showRange}날짜 기준</td>
-											</tr>
-										</tfoot>
-									</table>
-								</div>
+									<header class="major">
+										<h2>BoxOffice</h2>
+									</header>
+		
+									<div id="boxOffice" class="carousel slide" data-ride="carousel" style="background-image:url('resources/images/pic01.jpg')">
+									</div>
 								</section>
-							
+								
 							<!-- Section -->
 								<section>
 									<header class="major">
 										<h2>YouTube</h2>
 									</header>
-									<div class="posts">
-										<article>
-											<a href="#" class="image"><img src="resources/images/pic01.jpg" alt="" /></a>
-											<h3>영상1</h3>
-											<p>영상1에 대한 설명</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="resources/images/pic02.jpg" alt="" /></a>
-											<h3>영상2</h3>
-											<p>영상2에 대한 설명</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="resources/images/pic03.jpg" alt="" /></a>
-											<h3>영상3</h3>
-											<p>영상3에 대한 설명</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="resources/images/pic04.jpg" alt="" /></a>
-											<h3>영상4</h3>
-											<p>영상4에 대한 설명</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="resources/images/pic05.jpg" alt="" /></a>
-											<h3>영상5</h3>
-											<p>영상5에 대한 설명</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="resources/images/pic06.jpg" alt="" /></a>
-											<h3>영상6</h3>
-											<p>영상6에 대한 설명</p>
-										</article>
+								
+									<div class="owl-carousel owl-theme">
+									    <div class="item-video"><h4>1</h4><a class="owl-video" href="https://www.youtube.com/watch?v=Cc-zHL5nPD8"></a></div>
+									    <div class="item-video"><h4>2</h4><a class="owl-video" href="https://www.youtube.com/watch?v=bxpdaG4wvWM"></a></div>
+									    <div class="item-video"><h4>3</h4><a class="owl-video" href="https://www.youtube.com/watch?v=_r3X0d39Thk"></a></div>
+									    <div class="item-video"><h4>4</h4><a class="owl-video" href="https://www.youtube.com/watch?v=ctZ2pgcavd0"></a></div>
+									    <div class="item-video"><h4>5</h4><a class="owl-video" href="https://www.youtube.com/watch?v=tMqxWuFM0uk"></a></div>
+									    <div class="item-video"><h4>6</h4><a class="owl-video" href="https://www.youtube.com/watch?v=RAcElO7MCTI"></a></div>
+									    <div class="item-video"><h4>7</h4><a class="owl-video" href="https://www.youtube.com/watch?v=7r4CxOQvyPA"></a></div>
+									    <div class="item-video"><h4>8</h4><a class="owl-video" href="https://www.youtube.com/watch?v=u15mJ9AiPqs"></a></div>
+									    <div class="item-video"><h4>9</h4><a class="owl-video" href="https://www.youtube.com/watch?v=kk5mb5baMeQ"></a></div>
+									    <div class="item-video"><h4>10</h4><a class="owl-video" href="https://www.youtube.com/watch?v=DCZ0locgYuM"></a></div>
 									</div>
 								</section>
-								
-								<!-- Section -->
+							<!-- Section -->
 								<section>
 									<header class="major">
 										<h2>Blog</h2>
@@ -288,51 +265,118 @@
 			</div>
 						
 			<!-- Scripts -->
-			<script src="resources/assets/js/jquery.min.js"></script>
 			<script src="resources/assets/js/browser.min.js"></script>
 			<script src="resources/assets/js/breakpoints.min.js"></script>
 			<script src="resources/assets/js/util.js"></script>
 			<script src="resources/assets/js/main.js"></script>
-			
-			<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+			<!-- 
 			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-			
+						 -->
 			<script src="resources/js/sidebar.js"></script>
+			
 			<script>
-				$(window).load(function() {
+			$(document).ready(function(){ 
 				    // 로딩되기 시작할때
 					$.ajax({
-						url: "searchDailyBoxOffice",
+						url: "boxOfficeJSON",
 						type: "GET",
 						dataType: "JSON"
 						
 					}).done(function(data){
+						//케러셀 시도
+						var boxOfficeList = "<ol class='carousel-indicators'>";
 						
+						boxOfficeList += "<li data-target='#carouselExampleCaptions' data-slide-to='0' class='active'></li>";
+						
+						for(var i=1; i<data.length; i++){
+							boxOfficeList += "<li data-target='#carouselExampleCaptions' data-slide-to='"+ i +"'></li>";
+						}
+					
+						boxOfficeList += "</ol>";
+						
+						boxOfficeList += "<div class='carousel-inner'>";
+						
+						boxOfficeList += "<div class='carousel-item active'>";
+						boxOfficeList += "<img src='" + data[0].src + "' alt='" + data[0].title +"의 포스터' style='max-width: 50%; height: auto;'/>";
+						boxOfficeList += "<div class='carousel-caption d-none d-md-block'>";
+						boxOfficeList += "<h5>"+data[0].title+"</h5></div></div>";
+					
+						for(var i=1; i<data.length; i++){
+							boxOfficeList += "<div class='carousel-item'>";
+							boxOfficeList += "<img src='" + data[i].src + "' alt='" + data[i].title +"의 포스터' style='max-width: 50%; height: auto;'/>";
+							boxOfficeList += "<div class='carousel-caption d-none d-md-block'>";
+							boxOfficeList += "<h5>"+data[i].title+"</h5></div></div>";
+						}
+						
+						//버튼
+						boxOfficeList += "<a class='carousel-control-prev' href='#carouselExampleCaptions' role='button' data-slide='prev'>";
+						boxOfficeList += "<span class='carousel-control-prev-icon' aria-hidden='true'></span>";
+						boxOfficeList += "<span class='sr-only'>Previous</span></a>";
+						boxOfficeList += "<a class='carousel-control-next' href='#carouselExampleCaptions' role='button' data-slide='next'>";
+						boxOfficeList += "<span class='carousel-control-next-icon' aria-hidden='true'></span>";
+						boxOfficeList += "<span class='sr-only'>Next</span></a>";
+						
+						//<div class='carousel-inner'>을 닫아준다.
+						boxOfficeList += "</div>"
+						
+						document.getElementById('boxOffice').innerHTML = boxOfficeList;
+						
+						//백업
+						/* var boxOfficeList = "<div class='posts'>";
+						
+						for(var i = 0; i<data.length; i++){
+							boxOfficeList += "<article><a href='" + data[i].movieId + "'>";
+							boxOfficeList += "<img src='" + data[i].src + "' alt='" + data[i].title +"의 포스터' style='max-width: 50%; height: auto;'/></a>";
+							boxOfficeList += "<p>" + data[i].title + "</p></article>";
+						}
+						
+						boxOfficeList += "</div>";
+						
+						document.getElementById('boxOffice').innerHTML = boxOfficeList; */
+						console.log(data);
 					}).fail(function(err){
 						console.log(err);
 					});
-				});
-				
-				$(document).ready(function() { 
-					$.ajax({
-						url:"test",
-						dataType:"json"
-					})
+				    
+					$('.carousel').carousel();
 					
-					$.getJSON("result.json", function(data) {
-						var items = [];
-						$.each(data, function(key, val){
-							items.push("<li id='"+ key +"'>" + val + "</li>");
-						});
-						
-						$("<ul/>", {
-							"class" : "my-new-list",
-							html: items.join("")
-						}).appendTo("body");
+					
+				    
+			});
+			</script>
+			<script>
+				(function($) {$(document).ready(function(){
+					var owl = $('.owl-carousel');
+					owl.owlCarousel({
+					    loop:true,
+					    margin:10,
+					    nav:true,
+					    responsive:{
+					        0:{
+					            items:1
+					        },
+					        600:{
+					            items:3
+					        },
+					        960:{
+					            items:5
+					        },
+					        1200:{
+					        	items:6
+					        }
+					    }
+					});
+					owl.on('mousewheel', '.owl-stage', function (e){
+						if (e.deltaY>0) {
+					        owl.trigger('next.owl');
+					    } else {
+					        owl.trigger('prev.owl');
+					    }
+					    e.preventDefault();
 					});
 				});
+				})(jQuery);
 			</script>
-
 	</body>
 </html>

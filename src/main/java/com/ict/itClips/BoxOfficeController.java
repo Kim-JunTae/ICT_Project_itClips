@@ -2,57 +2,63 @@ package com.ict.itClips;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import spring.util.Jsoup;
 import spring.util.KOFIC_API;
 
 @Controller
 public class BoxOfficeController {
 	
+	@ResponseBody
+	@GetMapping(value="/boxOfficeJSON", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Map<String, String>>> searchDailyBoxOffice() throws Exception{
+		
+		//KOFIC_API kofic = new KOFIC_API(); 
+		//String result = kofic.searchDailyBoxOffice();
+		
+		Jsoup jsoup = new Jsoup();
+		List<Map<String, String>> result = jsoup.searchDailyBoxOffice();
+		
+		//System.out.println(result);
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+	
 
-	@GetMapping(value="/testJSON")
-	public String testPage() {
-		
-		return "test";
-	}
+
+	/*
+	 * @GetMapping(value="/testJSON") public String testPage() {
+	 * 
+	 * return "test"; }
+	 */
 	
-	@ResponseBody
-	@GetMapping(value="/test", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Map<String, String>> aaa() {
-		
-		Map<String, String> result = new HashMap<>();
-		
-		result.put("name", "Hong Gil Dong");
-		result.put("test", " Dong");
-		//System.out.println(result);
-		return new ResponseEntity<>(result, HttpStatus.OK);
-	}
+	/*
+	 * @ResponseBody
+	 * 
+	 * @GetMapping(value="/test", produces = MediaType.APPLICATION_JSON_VALUE)
+	 * public ResponseEntity<Map<String, String>> aaa() {
+	 * 
+	 * Map<String, String> result = new HashMap<>();
+	 * 
+	 * result.put("name", "Hong Gil Dong"); result.put("test", " Dong");
+	 * //System.out.println(result); return new ResponseEntity<>(result,
+	 * HttpStatus.OK); }
+	 */
 	
-	@ResponseBody
-	@GetMapping(value="/boxofficeJSON", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> searchDailyBoxOffice() throws Exception{
-		
-		KOFIC_API kofic = new KOFIC_API(); 
-		String result = kofic.searchDailyBoxOffice();
-		
-		//System.out.println(result);
-		return new ResponseEntity<>(result, HttpStatus.OK);
-	}
 	/*
 	 * @RequestMapping(value = "/searchDailyBoxOffice", method = RequestMethod.GET)
 	 * public ModelAndView searchDailyBoxOffice() throws Exception{ 
 	 * ModelAndView mv = new ModelAndView(); 
 	 * List<BoxOfficeVO> boxOfficeList = new ArrayList<BoxOfficeVO>();
 	 * 
-	 * KOFIC_API kofic = new KOFIC_API(); String dailyBoxOffice =
-	 * kofic.searchDailyBoxOffice(); //System.out.println(dailyBoxOffice);
+	 * KOFIC_API kofic = new KOFIC_API(); 
+	 * String dailyBoxOffice = kofic.searchDailyBoxOffice(); //System.out.println(dailyBoxOffice);
 	 * 
 	 * JsonParser jsonParser = new JsonParser(); JsonObject object =
 	 * (JsonObject)jsonParser.parse(dailyBoxOffice);
