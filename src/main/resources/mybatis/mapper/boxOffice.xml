@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 파일명과 동일하게 -->
+<mapper namespace="boxOffice">
+	<!-- Scheduler -->
+	<!-- 영화 중복 검사 -->
+	<select id="check" resultType="mybatis.vo.BoxOfficeVO"
+	                   parameterType="String">
+		SELECT * FROM ITCLIPS_BOXOFFICE
+		WHERE movieId = #{movieId}
+	</select>
+	
+	<!-- 저장 -->
+	<insert id="insert" parameterType="mybatis.vo.BoxOfficeVO">
+		INSERT INTO ITCLIPS_BOXOFFICE(movieId, title, src)
+		VALUES(#{movieId}, #{title}, #{src})
+	</insert>
+	
+	<!-- 영화 리스트 검사 및 영화 중복 검사 : 동적쿼리 -->
+	<select id="select" resultType="mybatis.vo.BoxOfficeVO">
+		SELECT * FROM ITCLIPS_BOXOFFICE
+		<if test="movieId != null">
+			WHERE movieId = #{movieId}
+		</if>
+	</select>
+</mapper>

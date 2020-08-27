@@ -5,16 +5,19 @@ import lombok.Setter;
 
 @Getter @Setter
 public class YouTubeVO {
-	private String 	videoId, 
-					publishedAt, 
-					channelId, 
-					title, 
+	private String 	videoId,
+					title,
 					description,
-					thumbnail;
+					thumbnail,
+					publishedAt, 
+					channelId,
+					movieId;
 
 	@Override
 	public String toString() {
-		return "YouTubeVO [videoId=" + videoId + ", publishedAt=" + publishedAt + ", channelId=" + channelId
-				+ ", title=" + title + ", description=" + description + ", thumbnail=" + thumbnail + "]";
+		return "YouTubeVO [videoId=" + videoId + ", title=" + title + ", description=" + description + ", thumbnail="
+				+ thumbnail + ", publishedAt=" + publishedAt + ", channelId=" + channelId + ", movieId=" + movieId
+				+ "]";
 	}
+
 }

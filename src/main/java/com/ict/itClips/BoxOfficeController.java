@@ -18,13 +18,13 @@ public class BoxOfficeController {
 	
 	@ResponseBody
 	@GetMapping(value="/boxOfficeJSON", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Map<String, String>>> searchDailyBoxOffice() throws Exception{
+	public ResponseEntity<List<Map<String, String>>> searchWeeklyBoxOffice() throws Exception{
 		
 		//KOFIC_API kofic = new KOFIC_API(); 
 		//String result = kofic.searchDailyBoxOffice();
 		
 		Jsoup jsoup = new Jsoup();
-		List<Map<String, String>> result = jsoup.searchDailyBoxOffice();
+		List<Map<String, String>> result = jsoup.searchWeeklyBoxOffice();
 		
 		//System.out.println(result);
 		return new ResponseEntity<>(result, HttpStatus.OK);

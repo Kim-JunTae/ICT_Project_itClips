@@ -33,7 +33,6 @@
 			.owl-carousel .owl-video-wrapper {
 				height: 200px;
 			}
-			
 		</style>
 	</head>
 
@@ -61,18 +60,34 @@
 									<!-- Search -->
 									<section id="search" class="alt">
 										<form method="post" action="#">
-											<input type="text" name="query" id="query" placeholder="Search" />
+											<input type="text" name="query" id="query" placeholder="Search"/>
 										</form>
 									</section>
 								</header>
 							
 							<!-- Banner : Ajax -->
 								<section>
-									<header class="major">
+									<header class="major" style="display: inline;">
 										<h2>BoxOffice</h2>
 									</header>
-		
-									<div id="boxOffice" class="carousel slide" data-ride="carousel" style="background-image:url('resources/images/pic01.jpg')">
+									<ul class="actions">
+										<li><span class="button large" onclick="ajaxWeekly()">주간</span></li>
+										<li><a href="#" class="button large">월간</a></li>
+										<li><a href="#" class="button large">연간</a></li>
+									</ul>
+									<!-- <div id="boxOffice" class="carousel slide" data-ride="carousel" style="background-image:url('resources/images/pic01.jpg')"></div> -->
+									
+									<div id="boxOffice" class="owl-carousel owl-theme">
+										<div class="item" style="width:100%"><img id="item0" src="#" onclick="searchYoutube(0)"><input id="title0" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><img id="item1" src="#" onclick="searchYoutube(1)"><input id="title1" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><img id="item2" src="#" onclick="searchYoutube(2)"><input id="title2" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><img id="item3" src="#" onclick="searchYoutube(3)"><input id="title3" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><img id="item4" src="#" onclick="searchYoutube(4)"><input id="title4" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><img id="item5" src="#" onclick="searchYoutube(5)"><input id="title5" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><img id="item6" src="#" onclick="searchYoutube(6)"><input id="title6" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><img id="item7" src="#" onclick="searchYoutube(7)"><input id="title7" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><img id="item8" src="#" onclick="searchYoutube(8)"><input id="title8" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><img id="item9" src="#" onclick="searchYoutube(9)"><input id="title9" type="hidden" value=""></div>
 									</div>
 								</section>
 								
@@ -82,7 +97,7 @@
 										<h2>YouTube</h2>
 									</header>
 								
-									<div class="owl-carousel owl-theme">
+									<div id="youTube" class="owl-carousel owl-theme">
 									    <div class="item-video"><h4>1</h4><a class="owl-video" href="https://www.youtube.com/watch?v=Cc-zHL5nPD8"></a></div>
 									    <div class="item-video"><h4>2</h4><a class="owl-video" href="https://www.youtube.com/watch?v=bxpdaG4wvWM"></a></div>
 									    <div class="item-video"><h4>3</h4><a class="owl-video" href="https://www.youtube.com/watch?v=_r3X0d39Thk"></a></div>
@@ -98,38 +113,24 @@
 							<!-- Section -->
 								<section>
 									<header class="major">
-										<h2>Blog</h2>
+										<h2>최근 리뷰 10개_Table</h2>
 									</header>
 									<div class="posts">
 										<article>
-											<a href="#" class="image"><img src="resources/images/pic01.jpg" alt="" /></a>
-											<h3>블로그1</h3>
-											<p>블로그1에 대한 설명</p>
+											<h3>1</h3>
+											<p>리뷰1에 대한 설명</p>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="resources/images/pic02.jpg" alt="" /></a>
-											<h3>블로그2</h3>
-											<p>블로그2에 대한 설명</p>
+											<h3>2</h3>
+											<p>리뷰2에 대한 설명</p>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="resources/images/pic03.jpg" alt="" /></a>
-											<h3>블로그3</h3>
-											<p>블로그3에 대한 설명</p>
+											<h3>3</h3>
+											<p>리뷰3에 대한 설명</p>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="resources/images/pic04.jpg" alt="" /></a>
-											<h3>블로그4</h3>
-											<p>블로그4에 대한 설명</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="resources/images/pic05.jpg" alt="" /></a>
-											<h3>블로그5</h3>
-											<p>블로그5에 대한 설명</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="resources/images/pic06.jpg" alt="" /></a>
-											<h3>블로그6</h3>
-											<p>블로그6에 대한 설명</p>
+											<h3>4</h3>
+											<p>리뷰4에 대한 설명</p>
 										</article>
 									</div>
 								</section>
@@ -263,25 +264,147 @@
 			    </div>
 			  </div>
 			</div>
+
+			<script>
+				$(document).ready(function(){ 
+					    // 로딩되기 시작할때
+						$.ajax({
+							url: "boxOfficeJSON",
+							type: "GET",
+							dataType: "JSON",
+							async: false
+							
+						}).done(function(data){
+							console.log(data);
+							
+							for(var i=0; i<data.length; i++){
+								var item = "item" + i;
+								var title = "title" + i;
+								//console.log(item);
+								console.log(title);
+								
+								var image = document.getElementById(item);
+								var input = document.getElementById(title);
+								
+								image.src = data[i].src;
+								input.value = data[i].title;
+								
+								console.log(image);
+								console.log(input);
+							} 
+	
+							console.log(data);
+						}).fail(function(err){
+							console.log(err);
+						});
+				});
+				
+				
+				function searchYoutube(number) {
+					  var title = "title" + number;
+					  //console.log(title);
+					  //title0에 해당하는 값을 넘겨주기
+					  var search = document.getElementById(title).value;
+					  //console.log(search);
+					  $.ajax({
+					  	url: "searchYoutube",
+						type: "GET",
+						data: "searchTitleName="+encodeURIComponent(search),
+						dataType: "JSON"
 						
+					  }).done(function(data){
+						  console.log(data);
+						  
+					  }).fail(function(err){
+						 console.log(err); 
+					  });
+				}  
+			</script>
+			
+			
+			<script>
+				(function($) {$(document).ready(function(){
+					var owl = $('.owl-carousel');
+					var owl1 = $('#boxOffice');
+					var owl2 = $('#youTube');
+					
+					owl1.owlCarousel({
+					    loop:true,
+					    margin:10,
+					    nav:true,
+					    responsive:{
+					        0:{
+					            items:1
+					        },
+					        600:{
+					            items:3
+					        },
+					        960:{
+					            items:5
+					        },
+					        1200:{
+					        	items:6
+					        }
+					    }
+					});
+					
+					owl1.on('mousewheel', '.owl-stage', function (e){
+						if (e.deltaY>0) {
+					        owl.trigger('next.owl');
+					    } else {
+					        owl.trigger('prev.owl');
+					    }
+					    e.preventDefault();
+					});
+					
+					
+					owl2.owlCarousel({
+					    loop:true,
+					    margin:10,
+					    nav:true,
+					    responsive:{
+					        0:{
+					            items:1
+					        },
+					        600:{
+					            items:3
+					        },
+					        960:{
+					            items:5
+					        },
+					        1200:{
+					        	items:6
+					        }
+					    }
+					});
+					owl2.on('mousewheel', '.owl-stage', function (e){
+						if (e.deltaY>0) {
+					        owl.trigger('next.owl');
+					    } else {
+					        owl.trigger('prev.owl');
+					    }
+					    e.preventDefault();
+					});
+				});
+				})(jQuery);
+			</script>
 			<!-- Scripts -->
 			<script src="resources/assets/js/browser.min.js"></script>
 			<script src="resources/assets/js/breakpoints.min.js"></script>
 			<script src="resources/assets/js/util.js"></script>
 			<script src="resources/assets/js/main.js"></script>
-			<!-- 
+		
 			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-						 -->
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>			 
 			<script src="resources/js/sidebar.js"></script>
-			
-			<script>
-			$(document).ready(function(){ 
+			<!-- <script>
+				$(document).ready(function(){ 
 				    // 로딩되기 시작할때
 					$.ajax({
 						url: "boxOfficeJSON",
 						type: "GET",
-						dataType: "JSON"
+						dataType: "JSON",
+						async: false
 						
 					}).done(function(data){
 						//케러셀 시도
@@ -341,42 +464,7 @@
 				    
 					$('.carousel').carousel();
 					
-					
-				    
-			});
-			</script>
-			<script>
-				(function($) {$(document).ready(function(){
-					var owl = $('.owl-carousel');
-					owl.owlCarousel({
-					    loop:true,
-					    margin:10,
-					    nav:true,
-					    responsive:{
-					        0:{
-					            items:1
-					        },
-					        600:{
-					            items:3
-					        },
-					        960:{
-					            items:5
-					        },
-					        1200:{
-					        	items:6
-					        }
-					    }
-					});
-					owl.on('mousewheel', '.owl-stage', function (e){
-						if (e.deltaY>0) {
-					        owl.trigger('next.owl');
-					    } else {
-					        owl.trigger('prev.owl');
-					    }
-					    e.preventDefault();
-					});
 				});
-				})(jQuery);
-			</script>
+			</script> -->
 	</body>
 </html>

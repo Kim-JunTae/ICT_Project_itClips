@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 파일명과 동일하게 -->
+<mapper namespace="youTube">
+	<!-- SchedulerController -->
+	<!-- YouTube 영상 중복 검사 -->
+	<select id="check" resultType="mybatis.vo.YouTubeVO"
+	                   parameterType="String">
+		SELECT * FROM ITCLIPS_YOUTUBE
+		WHERE videoId = #{videoId}
+	</select>
+	
+	<!-- 저장 -->
+	<insert id="insert" parameterType="mybatis.vo.YouTubeVO">
+		INSERT INTO ITCLIPS_YOUTUBE(videoId, title, description, thumbnail, publishedAt, channelId, movieId)
+		VALUES(#{videoId}, #{title}, #{description}, #{thumbnail}, #{publishedAt}, #{channelId}, #{movieId})
+	</insert>
+	
+</mapper>

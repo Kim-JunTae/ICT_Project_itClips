@@ -11,7 +11,7 @@ import org.jsoup.select.Elements;
 
 public class Jsoup {
 	
-	public List<Map<String, String>> searchDailyBoxOffice() throws Exception{
+	public List<Map<String, String>> searchWeeklyBoxOffice() throws Exception{
 		
 		//StringBuffer response = new StringBuffer();
 		List<Map<String, String>> response = new ArrayList<Map<String,String>>();
@@ -27,15 +27,15 @@ public class Jsoup {
 			
 			String title = li.select(".wrap_movie .name_movie").get(0).text();
 			map.put("title", title);
-			System.out.println(title);
+			//System.out.println(title);
 			
 			String src = li.select(".thumb_movie img").attr("src");
 			map.put("src", src);
-			System.out.println(src);
+			//System.out.println(src);
 			
 			String movieId = li.select(".wrap_desc a").get(0).attr("data-tiara-id");
 			map.put("movieId", movieId);
-			System.out.println(movieId);
+			//System.out.println(movieId);
 			response.add(map);
 		}
 		
