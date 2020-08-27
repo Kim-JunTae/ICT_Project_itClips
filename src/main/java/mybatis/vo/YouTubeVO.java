@@ -11,13 +11,18 @@ public class YouTubeVO {
 					thumbnail,
 					publishedAt, 
 					channelId,
+					viewCount,
+					likeCount,
+					dislikeCount,
+					favoriteCount,
+					commentCount,
 					movieId;
 
 	@Override
 	public String toString() {
 		return "YouTubeVO [videoId=" + videoId + ", title=" + title + ", description=" + description + ", thumbnail="
-				+ thumbnail + ", publishedAt=" + publishedAt + ", channelId=" + channelId + ", movieId=" + movieId
-				+ "]";
+				+ thumbnail + ", publishedAt=" + publishedAt + ", channelId=" + channelId + ", viewCount=" + viewCount
+				+ ", likeCount=" + likeCount + ", dislikeCount=" + dislikeCount + ", favoriteCount=" + favoriteCount
+				+ ", commentCount=" + commentCount + ", movieId=" + movieId + "]";
 	}
-
 }

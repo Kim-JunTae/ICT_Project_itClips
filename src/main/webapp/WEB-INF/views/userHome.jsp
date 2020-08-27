@@ -52,15 +52,14 @@
 									<c:if test="${sessionScope.nickname ne null}">
 										<span>${sessionScope.nickname}님 안녕하세요</span>
 									</c:if>
-							
-									<!-- itClipsButton -->
-									<!-- <section id="itClipsBtn" class="alt">
-										<input type="button" value="itclips">
-									</section> -->
-									<!-- Search -->
 									<section id="search" class="alt">
 										<form method="post" action="#">
-											<input type="text" name="query" id="query" placeholder="Search"/>
+											<div class="input-group mb-3">
+											  <input type="text" class="form-control" placeholder="영화 분석 페이지로">
+											  <div class="input-group-append">
+											    <button class="btn btn-outline-primary" type="button" id="analysis">search</button>
+											  </div>
+											</div>
 										</form>
 									</section>
 								</header>
@@ -71,23 +70,23 @@
 										<h2>BoxOffice</h2>
 									</header>
 									<ul class="actions">
-										<li><span class="button large" onclick="ajaxWeekly()">주간</span></li>
-										<li><a href="#" class="button large">월간</a></li>
-										<li><a href="#" class="button large">연간</a></li>
+										<li><span id="weeklyBtn" class="button large primary" onclick="getWeekly()">주간</span></li>
+										<li><span id="monthlyBtn" class="button large" onclick="getMonthly()">월간</span></li>
+										<li><span id="yearlyBtn" class="button large" onclick="getYearly()">연간</span></li>
 									</ul>
 									<!-- <div id="boxOffice" class="carousel slide" data-ride="carousel" style="background-image:url('resources/images/pic01.jpg')"></div> -->
 									
 									<div id="boxOffice" class="owl-carousel owl-theme">
-										<div class="item" style="width:100%"><img id="item0" src="#" onclick="searchYoutube(0)"><input id="title0" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><img id="item1" src="#" onclick="searchYoutube(1)"><input id="title1" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><img id="item2" src="#" onclick="searchYoutube(2)"><input id="title2" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><img id="item3" src="#" onclick="searchYoutube(3)"><input id="title3" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><img id="item4" src="#" onclick="searchYoutube(4)"><input id="title4" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><img id="item5" src="#" onclick="searchYoutube(5)"><input id="title5" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><img id="item6" src="#" onclick="searchYoutube(6)"><input id="title6" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><img id="item7" src="#" onclick="searchYoutube(7)"><input id="title7" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><img id="item8" src="#" onclick="searchYoutube(8)"><input id="title8" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><img id="item9" src="#" onclick="searchYoutube(9)"><input id="title9" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-primary">1</h4><img id="item0" src="#" onclick="searchYouTube(0)"><input id="title0" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-primary">2</h4><img id="item1" src="#" onclick="searchYouTube(1)"><input id="title1" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-primary">3</h4><img id="item2" src="#" onclick="searchYouTube(2)"><input id="title2" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-light">4</h4><img id="item3" src="#" onclick="searchYouTube(3)"><input id="title3" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-light">5</h4><img id="item4" src="#" onclick="searchYouTube(4)"><input id="title4" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-light">6</h4><img id="item5" src="#" onclick="searchYouTube(5)"><input id="title5" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-light">7</h4><img id="item6" src="#" onclick="searchYouTube(6)"><input id="title6" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-light">8</h4><img id="item7" src="#" onclick="searchYouTube(7)"><input id="title7" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-light">9</h4><img id="item8" src="#" onclick="searchYouTube(8)"><input id="title8" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-light">10</h4><img id="item9" src="#" onclick="searchYouTube(9)"><input id="title9" type="hidden" value=""></div>
 									</div>
 								</section>
 								
@@ -96,18 +95,17 @@
 									<header class="major">
 										<h2>YouTube</h2>
 									</header>
-								
-									<div id="youTube" class="owl-carousel owl-theme">
-									    <div class="item-video"><h4>1</h4><a class="owl-video" href="https://www.youtube.com/watch?v=Cc-zHL5nPD8"></a></div>
-									    <div class="item-video"><h4>2</h4><a class="owl-video" href="https://www.youtube.com/watch?v=bxpdaG4wvWM"></a></div>
-									    <div class="item-video"><h4>3</h4><a class="owl-video" href="https://www.youtube.com/watch?v=_r3X0d39Thk"></a></div>
-									    <div class="item-video"><h4>4</h4><a class="owl-video" href="https://www.youtube.com/watch?v=ctZ2pgcavd0"></a></div>
-									    <div class="item-video"><h4>5</h4><a class="owl-video" href="https://www.youtube.com/watch?v=tMqxWuFM0uk"></a></div>
-									    <div class="item-video"><h4>6</h4><a class="owl-video" href="https://www.youtube.com/watch?v=RAcElO7MCTI"></a></div>
-									    <div class="item-video"><h4>7</h4><a class="owl-video" href="https://www.youtube.com/watch?v=7r4CxOQvyPA"></a></div>
-									    <div class="item-video"><h4>8</h4><a class="owl-video" href="https://www.youtube.com/watch?v=u15mJ9AiPqs"></a></div>
-									    <div class="item-video"><h4>9</h4><a class="owl-video" href="https://www.youtube.com/watch?v=kk5mb5baMeQ"></a></div>
-									    <div class="item-video"><h4>10</h4><a class="owl-video" href="https://www.youtube.com/watch?v=DCZ0locgYuM"></a></div>
+									<div id="youTube">
+									    <iframe id="video0" src="" width="420" height="315"></iframe>
+									    <iframe id="video1" src="" width="420" height="315"></iframe>
+									    <iframe id="video2" src="" width="420" height="315"></iframe>
+									    <iframe id="video3" src="" width="420" height="315"></iframe>
+									    <iframe id="video4" src="" width="420" height="315"></iframe>
+									    <iframe id="video5" src="" width="420" height="315"></iframe>
+									    <iframe id="video6" src="" width="420" height="315"></iframe>
+									    <iframe id="video7" src="" width="420" height="315"></iframe>
+									    <iframe id="video8" src="" width="420" height="315"></iframe>
+									    <iframe id="video9" src="" width="420" height="315"></iframe>
 									</div>
 								</section>
 							<!-- Section -->
@@ -269,19 +267,19 @@
 				$(document).ready(function(){ 
 					    // 로딩되기 시작할때
 						$.ajax({
-							url: "boxOfficeJSON",
+							url: "boxOfficeJSON1",
 							type: "GET",
 							dataType: "JSON",
 							async: false
 							
 						}).done(function(data){
-							console.log(data);
+							//console.log(data);
 							
 							for(var i=0; i<data.length; i++){
 								var item = "item" + i;
 								var title = "title" + i;
 								//console.log(item);
-								console.log(title);
+								//console.log(title);
 								
 								var image = document.getElementById(item);
 								var input = document.getElementById(title);
@@ -289,37 +287,163 @@
 								image.src = data[i].src;
 								input.value = data[i].title;
 								
-								console.log(image);
-								console.log(input);
+								//console.log(image);
+								//console.log(input);
 							} 
 	
-							console.log(data);
+							//console.log(data);
 						}).fail(function(err){
 							console.log(err);
 						});
+					    
+					    //로딩될 때 가장 첫번째 박스오피스 영화 유튜브영상 밑에 뿌려주기
+					    searchYouTube(0);
 				});
 				
 				
-				function searchYoutube(number) {
+				function searchYouTube(number) {
 					  var title = "title" + number;
 					  //console.log(title);
-					  //title0에 해당하는 값을 넘겨주기
+					  //title[number]에 해당하는 값을 넘겨주기
+					  
 					  var search = document.getElementById(title).value;
 					  //console.log(search);
+					  
 					  $.ajax({
-					  	url: "searchYoutube",
+					  	url: "getYouTubeList",
 						type: "GET",
-						data: "searchTitleName="+encodeURIComponent(search),
-						dataType: "JSON"
+						data: "searchTitle="+encodeURIComponent(search),
+						dataType: "JSON",
+						asynce: false
 						
 					  }).done(function(data){
-						  console.log(data);
+						  //console.log(data);
+						  for(var i=0; i<data.length; i++){
+							  var video = "video"+i;
+							  //console.log(video);
+							  //console.log(youTube);
+							  
+							  var address = "https://www.youtube.com/embed/" + data[i].videoId;
+							  //console.log(data[i].videoId);
+							  //console.log(address);
+							  
+							  document.getElementById(video).setAttribute('src', address);
+						  }
 						  
 					  }).fail(function(err){
 						 console.log(err); 
 					  });
-				}  
+				}
+				
+				function getWeekly(){
+					document.getElementById("weeklyBtn").className="button large primary";
+					document.getElementById("monthlyBtn").className="button large";
+					document.getElementById("yearlyBtn").className="button large";
+					
+					$.ajax({
+						url: "boxOfficeJSON1",
+						type: "GET",
+						dataType: "JSON",
+						async: false
+						
+					}).done(function(data){
+						//console.log(data);
+						
+						for(var i=0; i<data.length; i++){
+							var item = "item" + i;
+							var title = "title" + i;
+							//console.log(item);
+							//console.log(title);
+							
+							var image = document.getElementById(item);
+							var input = document.getElementById(title);
+							
+							image.src = data[i].src;
+							input.value = data[i].title;
+							
+							//console.log(image);
+							//console.log(input);
+						} 
+
+						//console.log(data);
+					}).fail(function(err){
+						console.log(err);
+					});
+				}
+				
+				function getMonthly(){
+					document.getElementById("weeklyBtn").className="button large";
+					document.getElementById("monthlyBtn").className="button large primary";
+					document.getElementById("yearlyBtn").className="button large";
+					
+					$.ajax({
+						url: "boxOfficeJSON2",
+						type: "GET",
+						dataType: "JSON",
+						async: false
+						
+					}).done(function(data){
+						//console.log(data);
+						
+						for(var i=0; i<data.length; i++){
+							var item = "item" + i;
+							var title = "title" + i;
+							//console.log(item);
+							//console.log(title);
+							
+							var image = document.getElementById(item);
+							var input = document.getElementById(title);
+							
+							image.src = data[i].src;
+							input.value = data[i].title;
+							
+							//console.log(image);
+							//console.log(input);
+						} 
+
+						//console.log(data);
+					}).fail(function(err){
+						console.log(err);
+					});
+				}
+				
+				function getYearly(){
+					document.getElementById("weeklyBtn").className="button large";
+					document.getElementById("monthlyBtn").className="button large";
+					document.getElementById("yearlyBtn").className="button large primary";
+					
+					$.ajax({
+						url: "boxOfficeJSON3",
+						type: "GET",
+						dataType: "JSON",
+						async: false
+						
+					}).done(function(data){
+						//console.log(data);
+						
+						for(var i=0; i<data.length; i++){
+							var item = "item" + i;
+							var title = "title" + i;
+							//console.log(item);
+							//console.log(title);
+							
+							var image = document.getElementById(item);
+							var input = document.getElementById(title);
+							
+							image.src = data[i].src;
+							input.value = data[i].title;
+							
+							//console.log(image);
+							//console.log(input);
+						} 
+
+						//console.log(data);
+					}).fail(function(err){
+						console.log(err);
+					});
+				}
 			</script>
+			
 			
 			
 			<script>

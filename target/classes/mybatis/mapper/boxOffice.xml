@@ -18,11 +18,23 @@
 		VALUES(#{movieId}, #{title}, #{src})
 	</insert>
 	
-	<!-- 영화 리스트 검사 및 영화 중복 검사 : 동적쿼리 -->
+	
+	
+	<!-- MovieId 가져오기 -->
+	<select id="getMovieId" resultType="String" parameterType="String">
+		SELECT movieId FROM ITCLIPS_BOXOFFICE
+		WHERE title = #{title}
+	</select>
+	
+	<!-- 영화 리스트 검사 및 영화 중복 검사 : 동적쿼리 도전 떙-->
 	<select id="select" resultType="mybatis.vo.BoxOfficeVO">
 		SELECT * FROM ITCLIPS_BOXOFFICE
+	</select>
+	<!-- 
 		<if test="movieId != null">
 			WHERE movieId = #{movieId}
 		</if>
-	</select>
+		<if test="title != null">
+			WHERE title = #{title}
+		</if> -->
 </mapper>

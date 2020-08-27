@@ -17,7 +17,7 @@ import spring.util.KOFIC_API;
 public class BoxOfficeController {
 	
 	@ResponseBody
-	@GetMapping(value="/boxOfficeJSON", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="/boxOfficeJSON1", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Map<String, String>>> searchWeeklyBoxOffice() throws Exception{
 		
 		//KOFIC_API kofic = new KOFIC_API(); 
@@ -30,8 +30,28 @@ public class BoxOfficeController {
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	
+	@ResponseBody
+	@GetMapping(value="/boxOfficeJSON2", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Map<String, String>>> searchMonthlyBoxOffice() throws Exception{
+		
+		Jsoup jsoup = new Jsoup();
+		List<Map<String, String>> result = jsoup.searchMonthlyBoxOffice();
+		
+		//System.out.println(result);
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
 
-
+	@ResponseBody
+	@GetMapping(value="/boxOfficeJSON3", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Map<String, String>>> searchYearlyBoxOffice() throws Exception{
+		
+		Jsoup jsoup = new Jsoup();
+		List<Map<String, String>> result = jsoup.searchYearlyBoxOffice();
+		
+		//System.out.println(result);
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+	
 	/*
 	 * @GetMapping(value="/testJSON") public String testPage() {
 	 * 

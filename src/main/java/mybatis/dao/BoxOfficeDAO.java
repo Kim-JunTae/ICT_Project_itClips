@@ -29,6 +29,11 @@ public class BoxOfficeDAO {
 	}
 	
 	//박스오피스 정보 리스트 가져오기
+	public String getMovieId(String title) {
+		return template.selectOne("boxOffice.getMovieId", title);
+	}
+	
+	//박스오피스 정보 리스트 가져오기
 	public BoxOfficeVO[] getBoxOfficeList() {
 		BoxOfficeVO[] ar = null;
 		
