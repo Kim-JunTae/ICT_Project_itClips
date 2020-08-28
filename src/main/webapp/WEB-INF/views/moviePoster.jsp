@@ -6,85 +6,106 @@
 		<title>three.js css3d - periodic table를 이용한 Movie Poster 뿌려주기</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link type="text/css" rel="stylesheet" href="resources/css/main_threejs.css">
+
+		<script src="https://threejs.org/build/three.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/es6-tween"></script>		
+		<script type="text/javascript" src="/itClips/resources/TrackballControls.js"></script>
+		<script type="text/javascript" src="/itClips/resources/CSS3DRenderer.js"></script>
 		<style>
+			html, body {
+			  height: 100%;
+			}
+			
+			body {
+			  background-color: #000000;
+			  margin: 0;
+			  font-family: Helvetica, sans-serif;;
+			  overflow: hidden;
+			}
+			
 			a {
-				color: #8ff;
+			  color: #ffffff;
 			}
-
+			
+			#info {
+			  position: absolute;
+			  width: 100%;
+			  color: #ffffff;
+			  padding: 5px;
+			  font-family: Monospace;
+			  font-size: 13px;
+			  font-weight: bold;
+			  text-align: center;
+			  z-index: 1;
+			}
+			
 			#menu {
-				position: absolute;
-				bottom: 20px;
-				width: 100%;
-				text-align: center;
+			  position: absolute;
+			  bottom: 20px;
+			  width: 100%;
+			  text-align: center;
 			}
-
+			
 			.element {
-				width: 120px;
-				height: 160px;
-				box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
-				border: 1px solid rgba(127,255,255,0.25);
-				font-family: Helvetica, sans-serif;
-				text-align: center;
-				line-height: normal;
-				cursor: default;
+			  width: 120px;
+			  height: 160px;
+			  box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+			  border: 1px solid rgba(127,255,255,0.25);
+			  text-align: center;
+			  cursor: default;
 			}
-
+			
 			.element:hover {
-				box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
-				border: 1px solid rgba(127,255,255,0.75);
+			  box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
+			  border: 1px solid rgba(127,255,255,0.75);
 			}
-
-				.element .number {
-					position: absolute;
-					top: 20px;
-					right: 20px;
-					font-size: 12px;
-					color: rgba(127,255,255,0.75);
-				}
-
-				.element .symbol {
-					position: absolute;
-					top: 40px;
-					left: 0px;
-					right: 0px;
-					font-size: 60px;
-					font-weight: bold;
-					color: rgba(255,255,255,0.75);
-					text-shadow: 0 0 10px rgba(0,255,255,0.95);
-				}
-
-				.element .details {
-					position: absolute;
-					bottom: 15px;
-					left: 0px;
-					right: 0px;
-					font-size: 12px;
-					color: rgba(127,255,255,0.75);
-				}
-
+			
+			.element .number {
+			  position: absolute;
+			  top: 20px;
+			  right: 20px;
+			  font-size: 12px;
+			  color: rgba(127,255,255,0.75);
+			}
+			
+			.element .symbol {
+			  position: absolute;
+			  top: 40px;
+			  left: 0px;
+			  right: 0px;
+			  font-size: 60px;
+			  font-weight: bold;
+			  color: rgba(255,255,255,0.75);
+			  text-shadow: 0 0 10px rgba(0,255,255,0.95);
+			}
+			
+			.element .details {
+			  position: absolute;
+			  bottom: 15px;
+			  left: 0px;
+			  right: 0px;
+			  font-size: 12px;
+			  color: rgba(127,255,255,0.75);
+			}
+			
 			button {
-				color: rgba(127,255,255,0.75);
-				background: transparent;
-				outline: 1px solid rgba(127,255,255,0.75);
-				border: 0px;
-				padding: 5px 10px;
-				cursor: pointer;
+			  color: rgba(127,255,255,0.75);
+			  background: transparent;
+			  outline: 1px solid rgba(127,255,255,0.75);
+			  border: 0px;
+			  padding: 5px 10px;
+			  cursor: pointer;
 			}
-
 			button:hover {
-				background-color: rgba(0,255,255,0.5);
+			  background-color: rgba(0,255,255,0.5);
 			}
-
 			button:active {
-				color: #000000;
-				background-color: rgba(0,255,255,0.75);
+			  color: #000000;
+			  background-color: rgba(0,255,255,0.75);
 			}
 		</style>
 	</head>
 	<body>
-
-		<div id="info"><a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> css3d - periodic table.</div>
 		<div id="container"></div>
 		<div id="menu">
 			<button id="table">TABLE</button>
@@ -93,19 +114,8 @@
 			<button id="grid">GRID</button>
 		</div>
 
-		<script type="module">
-
-			//import * as THREE from '../build/three.module.js';
-			//import { TWEEN } from './jsm/libs/tween.module.min.js';
-			//import { TrackballControls } from './jsm/controls/TrackballControls.js';
-			//import { CSS3DRenderer, CSS3DObject } from './jsm/renderers/CSS3DRenderer.js';
-
-			import * as THREE from 'resources/js/three.module.js';
-			import { TWEEN } from 'resources/js/tween.module.min.js';
-			import { TrackballControls } from 'resources/js/TrackballControls.js';
-			import { CSS3DRenderer, CSS3DObject } from 'resources/js/CSS3DRenderer.js';
-
-			var table = [
+		<script>
+		var table = [
 				"H", "Hydrogen", "1.00794", 1, 1,
 				"He", "Helium", "4.002602", 18, 1,
 				"Li", "Lithium", "6.941", 1, 2,
@@ -444,7 +454,6 @@
 				renderer.render( scene, camera );
 
 			}
-
 		</script>
 	</body>
 </html>

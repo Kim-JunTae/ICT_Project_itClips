@@ -25,7 +25,7 @@ public class Youtube_API {
 		String apiurl = "https://www.googleapis.com/youtube/v3/search";
 		//apiurl += "?key=AIzaSyCNY8isLFGtuy_mRV23YNPdJRY0-TrwVZk";	//내꺼
 		//apiurl += "?key=AIzaSyCeJAeERHKe0jkfUaL1czciAEtdHyXGD0A";	//현진씨꺼
-		apiurl += "?key=AIzaSyCeJAeERHKe0jkfUaL1czciAEtdHyXGD0A";
+		apiurl += "?key=AIzaSyCNY8isLFGtuy_mRV23YNPdJRY0-TrwVZk";
 		apiurl += "&part=snippet&eventType=completed&type=video&maxResults=10&videoEmbeddable=true";
 		apiurl += "&order=viewCount";
 		apiurl += "&q="+URLEncoder.encode(searchWord,"UTF-8");
@@ -79,7 +79,7 @@ public class Youtube_API {
 		//apiurl += "?key=AIzaSyCNY8isLFGtuy_mRV23YNPdJRY0-TrwVZk";	//내꺼
 		//apiurl += "?key=AIzaSyCeJAeERHKe0jkfUaL1czciAEtdHyXGD0A";	//현진씨꺼
 		String apiurl = "https://www.googleapis.com/youtube/v3/videos";
-		apiurl += "?key=AIzaSyCeJAeERHKe0jkfUaL1czciAEtdHyXGD0A";
+		apiurl += "?key=AIzaSyCNY8isLFGtuy_mRV23YNPdJRY0-TrwVZk";
 		apiurl += "&part=statistics";
 		apiurl += "&id="+URLEncoder.encode(videoId,"UTF-8");
 		

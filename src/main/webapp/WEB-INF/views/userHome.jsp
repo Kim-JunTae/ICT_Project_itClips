@@ -49,6 +49,7 @@
 								<header id="header">
 									<a href="userHome" class="logo"><strong><span>itClips</span></strong></a>
 									<!-- NAV : 영화 목록 보기(three.js), 영화 분석 페이지 -->
+									<a href="moviePoster">무비 포스터로!</a>
 									<!-- 로그인 닉네임 체크 -->
 									<c:if test="${sessionScope.nickname ne null}">
 										<span>${sessionScope.nickname}님 안녕하세요</span>
@@ -133,6 +134,16 @@
 										<article>
 											<div class="box">
 												<p id="review3"> 리뷰4 </p>
+											</div>
+										</article>
+										<article>
+											<div class="box">
+												<p id="review4"> 리뷰5 </p>
+											</div>
+										</article>
+										<article>
+											<div class="box">
+												<p id="review5"> 리뷰6 </p>
 											</div>
 										</article>
 									</div>

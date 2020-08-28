@@ -84,9 +84,10 @@ public class Scheduler {
 	
 	//박스오피스에 올라온 영화들의 MovieId값으로 다음 영화 댓글을 검색하여 DB에 저장하는 함수
 	
-	//-> 스케줄러 하나로 통합해야 되는듯 ㅠㅠ
+	//0828_할당량 문제를 해결하지 않고는 하기 힘들 것 같다._대체방안으로 다음의 검색을 사용하자
+	//-> 스케줄러 하나로 통합해야 되는듯 ㅠㅠ 
 	//박스오피스에 올라온 영화들의 제목으로 유튜브 검색을 하여 정보를 DB에 저장하는 함수 : 함수 두 개
-//	@Scheduled(cron = "0 10 16 * * ?")
+//	@Scheduled(cron = "* 8 * * * ?")
 //	public void insertDB_YouTube() throws Exception{
 //		System.out.println("scheduler : insertDB_YouTube");
 //		
