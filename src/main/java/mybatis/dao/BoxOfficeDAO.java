@@ -28,7 +28,7 @@ public class BoxOfficeDAO {
 		return template.insert("boxOffice.insert", vo);
 	}
 	
-	//박스오피스 정보 리스트 가져오기
+	//박스오피스 정보 가져오기
 	public String getMovieId(String title) {
 		return template.selectOne("boxOffice.getMovieId", title);
 	}

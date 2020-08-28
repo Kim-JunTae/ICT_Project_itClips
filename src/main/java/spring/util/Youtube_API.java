@@ -20,13 +20,14 @@ public class Youtube_API {
 	public List<Map<String, String>> search(String search) throws IOException {
 		List<Map<String, String>> response = new ArrayList<Map<String,String>>();
 		
-		String searchWord = search + " 리뷰";
+		String searchWord = search + " 감상";
 		
 		String apiurl = "https://www.googleapis.com/youtube/v3/search";
 		//apiurl += "?key=AIzaSyCNY8isLFGtuy_mRV23YNPdJRY0-TrwVZk";	//내꺼
 		//apiurl += "?key=AIzaSyCeJAeERHKe0jkfUaL1czciAEtdHyXGD0A";	//현진씨꺼
-		apiurl += "?key=AIzaSyCeJAeERHKe0jkfUaL1czciAEtdHyXGD0A";	
-		apiurl += "&part=snippet&eventType=completed&type=video&maxResults=50&videoEmbeddable=true";
+		apiurl += "?key=AIzaSyCeJAeERHKe0jkfUaL1czciAEtdHyXGD0A";
+		apiurl += "&part=snippet&eventType=completed&type=video&maxResults=20&videoEmbeddable=true";
+		apiurl += "&order=viewCount";
 		apiurl += "&q="+URLEncoder.encode(searchWord,"UTF-8");
 		
 		URL url = new URL(apiurl);

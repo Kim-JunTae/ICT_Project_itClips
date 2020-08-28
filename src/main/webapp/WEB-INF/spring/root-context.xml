@@ -36,11 +36,12 @@
 		<constructor-arg ref="factory"/>
 	</bean>
 	
-	<!-- DAO : userDao, categoryDao, boxOfficeDao, youTubeDao -->
+	<!-- DAO : userDao, categoryDao, boxOfficeDao, youTubeDao, reviewDao -->
 	<bean id="userDao" class="mybatis.dao.UserDAO"/>
 	<bean id="categoryDao" class="mybatis.dao.CategoryDAO"/>
 	<bean id="boxOfficeDao" class="mybatis.dao.BoxOfficeDAO"/>
 	<bean id="youTubeDao" class="mybatis.dao.YouTubeDAO"/>
+	<bean id="reviewDao" class="mybatis.dao.ReviewDAO"/>
 	
 	<!-- 스케줄러 추가 : 현재 컨트롤러에서 할 예정이라 bean과 context:component-scan 없어도 될듯 -->
 	<bean id="scheduleService" class="spring.util.Scheduler"/>

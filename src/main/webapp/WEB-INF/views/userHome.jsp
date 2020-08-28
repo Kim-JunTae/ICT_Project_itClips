@@ -66,10 +66,10 @@
 							
 							<!-- Banner : Ajax -->
 								<section>
-									<header class="major" style="display: inline;">
+									<header class="major left" style="display: inline;">
 										<h2>BoxOffice</h2>
 									</header>
-									<ul class="actions">
+									<ul class="actions right">
 										<li><span id="weeklyBtn" class="button large primary" onclick="getWeekly()">주간</span></li>
 										<li><span id="monthlyBtn" class="button large" onclick="getMonthly()">월간</span></li>
 										<li><span id="yearlyBtn" class="button large" onclick="getYearly()">연간</span></li>
@@ -77,58 +77,62 @@
 									<!-- <div id="boxOffice" class="carousel slide" data-ride="carousel" style="background-image:url('resources/images/pic01.jpg')"></div> -->
 									
 									<div id="boxOffice" class="owl-carousel owl-theme">
-										<div class="item" style="width:100%"><h4 class="badge badge-primary">1</h4><img id="item0" src="#" onclick="searchYouTube(0)"><input id="title0" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><h4 class="badge badge-primary">2</h4><img id="item1" src="#" onclick="searchYouTube(1)"><input id="title1" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><h4 class="badge badge-primary">3</h4><img id="item2" src="#" onclick="searchYouTube(2)"><input id="title2" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><h4 class="badge badge-light">4</h4><img id="item3" src="#" onclick="searchYouTube(3)"><input id="title3" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><h4 class="badge badge-light">5</h4><img id="item4" src="#" onclick="searchYouTube(4)"><input id="title4" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><h4 class="badge badge-light">6</h4><img id="item5" src="#" onclick="searchYouTube(5)"><input id="title5" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><h4 class="badge badge-light">7</h4><img id="item6" src="#" onclick="searchYouTube(6)"><input id="title6" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><h4 class="badge badge-light">8</h4><img id="item7" src="#" onclick="searchYouTube(7)"><input id="title7" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><h4 class="badge badge-light">9</h4><img id="item8" src="#" onclick="searchYouTube(8)"><input id="title8" type="hidden" value=""></div>
-										<div class="item" style="width:100%"><h4 class="badge badge-light">10</h4><img id="item9" src="#" onclick="searchYouTube(9)"><input id="title9" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-primary">1</h4><img id="item0" src="#" onclick="searchYouTube(0); searchReview(0);"><input id="title0" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-primary">2</h4><img id="item1" src="#" onclick="searchYouTube(1); searchReview(1);"><input id="title1" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-primary">3</h4><img id="item2" src="#" onclick="searchYouTube(2); searchReview(2);"><input id="title2" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-light">4</h4><img id="item3" src="#" onclick="searchYouTube(3); searchReview(3);"><input id="title3" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-light">5</h4><img id="item4" src="#" onclick="searchYouTube(4); searchReview(4);"><input id="title4" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-light">6</h4><img id="item5" src="#" onclick="searchYouTube(5); searchReview(5);"><input id="title5" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-light">7</h4><img id="item6" src="#" onclick="searchYouTube(6); searchReview(6);"><input id="title6" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-light">8</h4><img id="item7" src="#" onclick="searchYouTube(7); searchReview(7);"><input id="title7" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-light">9</h4><img id="item8" src="#" onclick="searchYouTube(8); searchReview(8);"><input id="title8" type="hidden" value=""></div>
+										<div class="item" style="width:100%"><h4 class="badge badge-light">10</h4><img id="item9" src="#" onclick="searchYouTube(9); searchReview(9);"><input id="title9" type="hidden" value=""></div>
 									</div>
 								</section>
 								
 							<!-- Section -->
 								<section>
 									<header class="major">
-										<h2>YouTube</h2>
+										<h2>관련 YouTube</h2>
 									</header>
-									<div id="youTube">
-									    <iframe id="video0" src="" width="420" height="315"></iframe>
-									    <iframe id="video1" src="" width="420" height="315"></iframe>
-									    <iframe id="video2" src="" width="420" height="315"></iframe>
-									    <iframe id="video3" src="" width="420" height="315"></iframe>
-									    <iframe id="video4" src="" width="420" height="315"></iframe>
-									    <iframe id="video5" src="" width="420" height="315"></iframe>
-									    <iframe id="video6" src="" width="420" height="315"></iframe>
-									    <iframe id="video7" src="" width="420" height="315"></iframe>
-									    <iframe id="video8" src="" width="420" height="315"></iframe>
-									    <iframe id="video9" src="" width="420" height="315"></iframe>
+									<div id="youTube"><!-- 420, 314 -->
+									    <iframe id="video0" src="" width="140" height="105"></iframe>
+									    <iframe id="video1" src="" width="140" height="105"></iframe>
+									    <iframe id="video2" src="" width="140" height="105"></iframe>
+									    <iframe id="video3" src="" width="140" height="105"></iframe>
+									    <iframe id="video4" src="" width="140" height="105"></iframe>
+									    <iframe id="video5" src="" width="140" height="105"></iframe>
+									    <iframe id="video6" src="" width="140" height="105"></iframe>
+									    <iframe id="video7" src="" width="140" height="105"></iframe>
+									    <iframe id="video8" src="" width="140" height="105"></iframe>
+									    <iframe id="video9" src="" width="140" height="105"></iframe>
 									</div>
 								</section>
 							<!-- Section -->
 								<section>
 									<header class="major">
-										<h2>최근 리뷰 10개_Table</h2>
+										<h2>최근 리뷰</h2>
 									</header>
 									<div class="posts">
 										<article>
-											<h3>1</h3>
-											<p>리뷰1에 대한 설명</p>
+											<div class="box">
+												<p id="review0"> 리뷰1 </p>
+											</div>
 										</article>
 										<article>
-											<h3>2</h3>
-											<p>리뷰2에 대한 설명</p>
+											<div class="box">
+												<p id="review1"> 리뷰2 </p>
+											</div>
 										</article>
 										<article>
-											<h3>3</h3>
-											<p>리뷰3에 대한 설명</p>
+											<div class="box">
+												<p id="review2"> 리뷰3 </p>
+											</div>
 										</article>
 										<article>
-											<h3>4</h3>
-											<p>리뷰4에 대한 설명</p>
+											<div class="box">
+												<p id="review3"> 리뷰4 </p>
+											</div>
 										</article>
 									</div>
 								</section>
@@ -298,8 +302,42 @@
 					    
 					    //로딩될 때 가장 첫번째 박스오피스 영화 유튜브영상 밑에 뿌려주기
 					    searchYouTube(0);
+					    searchReview(0);
 				});
 				
+				function searchReview(number){
+					var title = "title" + number;
+					//영화 제목 가져오기
+					var search = document.getElementById(title).value;
+					//1. 영화 제목으로 ITCLIPS_BOXOFFICE 테이블에서 movieId 가져오기
+					$.ajax({
+					  	url: "reviewJSON",
+						type: "GET",
+						data: "searchTitle="+encodeURIComponent(search),
+						dataType: "JSON",
+						asynce: false
+						
+					  }).done(function(data){
+						console.log(data);
+						//2. movideId로 ITCLIPS_REVIEW의 최신(REVIEW_DATE가 최근이고, 내용이 null이 아닌 것)내용 가져오기
+						  for(var i=0; i<data.length; i++){
+							  var review = "review" + i;
+							  var content = data[i].netizenName+"&nbsp;&nbsp;&nbsp;";
+							  	  content += data[i].grade + "/10 <br>"
+							  	  content += data[i].review + "<br>"
+							  	  content += data[i].reviewDate;
+							  console.log(content);
+							  
+							  document.getElementById(review).innerHTML = content;
+						  }
+						
+					  }).fail(function(err){
+						 console.log(err); 
+					  });
+					//2. movideId로 ITCLIPS_REVIEW의 최신(REVIEW_DATE가 최근이고, 내용이 null이 아닌 것)내용 가져오기
+					//3. review0~3 내용 바꿔주기
+					
+				}
 				
 				function searchYouTube(number) {
 					  var title = "title" + number;
@@ -449,10 +487,8 @@
 			<script>
 				(function($) {$(document).ready(function(){
 					var owl = $('.owl-carousel');
-					var owl1 = $('#boxOffice');
-					var owl2 = $('#youTube');
 					
-					owl1.owlCarousel({
+					owl.owlCarousel({
 					    loop:true,
 					    margin:10,
 					    nav:true,
@@ -472,7 +508,7 @@
 					    }
 					});
 					
-					owl1.on('mousewheel', '.owl-stage', function (e){
+					owl.on('mousewheel', '.owl-stage', function (e){
 						if (e.deltaY>0) {
 					        owl.trigger('next.owl');
 					    } else {
@@ -480,36 +516,7 @@
 					    }
 					    e.preventDefault();
 					});
-					
-					
-					owl2.owlCarousel({
-					    loop:true,
-					    margin:10,
-					    nav:true,
-					    responsive:{
-					        0:{
-					            items:1
-					        },
-					        600:{
-					            items:3
-					        },
-					        960:{
-					            items:5
-					        },
-					        1200:{
-					        	items:6
-					        }
-					    }
 					});
-					owl2.on('mousewheel', '.owl-stage', function (e){
-						if (e.deltaY>0) {
-					        owl.trigger('next.owl');
-					    } else {
-					        owl.trigger('prev.owl');
-					    }
-					    e.preventDefault();
-					});
-				});
 				})(jQuery);
 			</script>
 			<!-- Scripts -->
