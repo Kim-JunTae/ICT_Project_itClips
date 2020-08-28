@@ -27,10 +27,11 @@
 			scene.add( cube );
 
 			camera.position.z = 5;
-
+			
+			//2. Rendering the scene
 			var animate = function () {
 				requestAnimationFrame( animate );
-
+				//3. Animating the cube
 				cube.rotation.x += 0.01;
 				cube.rotation.y += 0.01;
 

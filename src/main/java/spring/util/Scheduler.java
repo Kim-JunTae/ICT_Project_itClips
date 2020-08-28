@@ -30,7 +30,7 @@ public class Scheduler {
 	//매 1분마다 실행 : * 1 * * * *
 	//매일 새벽 2시 실행 : 0 0 02 * * ?
 
-	@Scheduled(cron="0 0 02 * *")
+	@Scheduled(cron="0 0 02 * * ?")
 	public void insertDB_BoxOffice() throws Exception{
 		System.out.println("scheduler : insertDB_BoxOffice");
 		

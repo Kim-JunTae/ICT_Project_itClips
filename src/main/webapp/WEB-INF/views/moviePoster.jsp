@@ -6,7 +6,7 @@
 		<title>three.js css3d - periodic table를 이용한 Movie Poster 뿌려주기</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link type="text/css" rel="stylesheet" href="main.css">
+		<link type="text/css" rel="stylesheet" href="resources/css/main_threejs.css">
 		<style>
 			a {
 				color: #8ff;
@@ -95,11 +95,15 @@
 
 		<script type="module">
 
-			import * as THREE from '../build/three.module.js';
+			//import * as THREE from '../build/three.module.js';
+			//import { TWEEN } from './jsm/libs/tween.module.min.js';
+			//import { TrackballControls } from './jsm/controls/TrackballControls.js';
+			//import { CSS3DRenderer, CSS3DObject } from './jsm/renderers/CSS3DRenderer.js';
 
-			import { TWEEN } from './jsm/libs/tween.module.min.js';
-			import { TrackballControls } from './jsm/controls/TrackballControls.js';
-			import { CSS3DRenderer, CSS3DObject } from './jsm/renderers/CSS3DRenderer.js';
+			import * as THREE from 'resources/js/three.module.js';
+			import { TWEEN } from 'resources/js/tween.module.min.js';
+			import { TrackballControls } from 'resources/js/TrackballControls.js';
+			import { CSS3DRenderer, CSS3DObject } from 'resources/js/CSS3DRenderer.js';
 
 			var table = [
 				"H", "Hydrogen", "1.00794", 1, 1,
