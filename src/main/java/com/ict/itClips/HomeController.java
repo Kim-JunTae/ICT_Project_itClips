@@ -17,6 +17,11 @@ public class HomeController {
 		return "intro";
 	}
 	
+	@RequestMapping(value = "moviePoster", method = RequestMethod.GET)
+	public String moviePoster() {
+		return "moviePoster";
+	}
+	
 	@RequestMapping(value = "userHome", method = RequestMethod.GET)
 	public String userHome() {
 		return "userHome";

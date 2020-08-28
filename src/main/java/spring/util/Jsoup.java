@@ -61,8 +61,11 @@ public class Jsoup {
 		
 		//StringBuffer response = new StringBuffer();
 		List<Map<String, String>> response = new ArrayList<Map<String,String>>();
-	
-		Document doc = org.jsoup.Jsoup.connect("https://movie.daum.net/boxoffice/weekly").get();
+		
+		String apiurl = "https://movie.daum.net/boxoffice/weekly";
+			   apiurl += "?startDate=20200817";
+			   
+		Document doc = org.jsoup.Jsoup.connect(apiurl).get();
 		
 		//System.out.println(doc);
 		
@@ -93,7 +96,10 @@ public class Jsoup {
 		//StringBuffer response = new StringBuffer();
 		List<Map<String, String>> response = new ArrayList<Map<String,String>>();
 	
-		Document doc = org.jsoup.Jsoup.connect("https://movie.daum.net/boxoffice/monthly").get();
+		String apiurl = "https://movie.daum.net/boxoffice/monthly";
+			   apiurl += "?yyyymm=202008";
+		
+		Document doc = org.jsoup.Jsoup.connect(apiurl).get();
 		
 		//System.out.println(doc);
 		
@@ -119,12 +125,16 @@ public class Jsoup {
 		return response;
 	}//end searchMonthlyBoxOffice()
 	
+	//미친 수동 year조절은 쫌;;;
 	public List<Map<String, String>> searchYearlyBoxOffice() throws Exception{
 		
 		//StringBuffer response = new StringBuffer();
 		List<Map<String, String>> response = new ArrayList<Map<String,String>>();
 	
-		Document doc = org.jsoup.Jsoup.connect("https://movie.daum.net/boxoffice/yearly").get();
+		String apiurl = "https://movie.daum.net/boxoffice/yearly";
+			   apiurl += "?year=2010";
+		
+		Document doc = org.jsoup.Jsoup.connect(apiurl).get();
 		
 		//System.out.println(doc);
 		

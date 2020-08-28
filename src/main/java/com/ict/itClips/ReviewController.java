@@ -28,10 +28,10 @@ public class ReviewController {
 		
 		//title을 받아서 boxOffice 테이블에서 검색하여 movieId 값을 받아서 YouTube 테이블로 가야된다.
 		String movieId = boxOfficeDao.getMovieId(searchTitle);
-		System.out.println(movieId);
+		//System.out.println(movieId);
 		
 		ReviewVO[] result = reviewDao.reviewJSON(movieId);
-		System.out.println(result);//null값왜 나오지
+		//System.out.println(result);//null값왜 나오지
 		
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}

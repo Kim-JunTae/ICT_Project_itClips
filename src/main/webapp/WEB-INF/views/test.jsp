@@ -4,50 +4,40 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>owlCarousel Test</title>
-
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<link rel="stylesheet" href="resources/owlcarousel/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="resources/owlcarousel/assets/owl.theme.default.min.css">	
-<script src="resources/owlcarousel/owl.carousel.min.js"></script>
-
-
-<script>
-$(document).ready(function(){
-	$('.owl-carousel').owlCarousel({
-	    loop:true,
-	    margin:10,
-	    nav:true,
-	    responsive:{
-	        0:{
-	            items:1
-	        },
-	        600:{
-	            items:3
-	        },
-	        1000:{
-	            items:5
-	        }
-	    }
-	});
-});
-
-</script>
+	<title>three js Test</title>
+	<style>
+		body { margin: 0; }
+		canvas { display: block; }
+	</style>
 </head>
 <body>
-	<div class="owl-carousel owl-theme">
-	    <div class="item"><h4>1</h4></div>
-	    <div class="item"><h4>2</h4></div>
-	    <div class="item"><h4>3</h4></div>
-	    <div class="item"><h4>4</h4></div>
-	    <div class="item"><h4>5</h4></div>
-	    <div class="item"><h4>6</h4></div>
-	    <div class="item"><h4>7</h4></div>
-	    <div class="item"><h4>8</h4></div>
-	    <div class="item"><h4>9</h4></div>
-	    <div class="item"><h4>10</h4></div>
-	    <div class="item"><h4>11</h4></div>
-	    <div class="item"><h4>12</h4></div>
-	</div>
+	<script src="resources/js/three.js"></script>
+		<script>
+			//1. Creating the scene
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			var geometry = new THREE.BoxGeometry();
+			var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+			var cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
+
+			camera.position.z = 5;
+
+			var animate = function () {
+				requestAnimationFrame( animate );
+
+				cube.rotation.x += 0.01;
+				cube.rotation.y += 0.01;
+
+				renderer.render( scene, camera );
+			};
+
+			animate();
+		</script>
 </body>
 </html>

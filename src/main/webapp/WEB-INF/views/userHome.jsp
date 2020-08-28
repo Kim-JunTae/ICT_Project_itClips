@@ -48,6 +48,7 @@
 							<!-- Header -->
 								<header id="header">
 									<a href="userHome" class="logo"><strong><span>itClips</span></strong></a>
+									<!-- NAV : 영화 목록 보기(three.js), 영화 분석 페이지 -->
 									<!-- 로그인 닉네임 체크 -->
 									<c:if test="${sessionScope.nickname ne null}">
 										<span>${sessionScope.nickname}님 안녕하세요</span>
