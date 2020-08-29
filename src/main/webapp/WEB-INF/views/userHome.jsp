@@ -33,6 +33,7 @@
 			.owl-carousel .owl-video-wrapper {
 				height: 200px;
 			}
+			
 		</style>
 	</head>
 
@@ -49,32 +50,30 @@
 								<header id="header">
 									<a href="userHome" class="logo"><strong><span>itClips</span></strong></a>
 									<!-- NAV : 영화 목록 보기(three.js), 영화 분석 페이지 -->
-									<a href="moviePoster">무비 포스터로!</a>
+									<input type="button" style="flex: 0.1;" value="무비 포스터로!" onclick="location.href='moviePoster'">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<!-- 로그인 닉네임 체크 -->
 									<c:if test="${sessionScope.nickname ne null}">
 										<span>${sessionScope.nickname}님 안녕하세요</span>
 									</c:if>
-									<section id="search" class="alt">
-										<form method="post" action="#">
-											<div class="input-group mb-3">
-											  <input type="text" class="form-control" placeholder="영화 분석 페이지로">
-											  <div class="input-group-append">
-											    <button class="btn btn-outline-primary" type="button" id="analysis">search</button>
-											  </div>
-											</div>
-										</form>
-									</section>
+									
+									<form method="post" action="#">
+										  <input type="text" class="form-control" placeholder="영화 분석 페이지로">
+									</form>
+									<input type="button" style="flex: 0.1;" id="analysis" value="search">
 								</header>
 							
 							<!-- Banner : Ajax -->
 								<section>
-									<header class="major left" style="display: inline;">
+									<!-- <header class="major">
 										<h2>BoxOffice</h2>
-									</header>
-									<ul class="actions right">
-										<li><span id="weeklyBtn" class="button large primary" onclick="getWeekly()">주간</span></li>
-										<li><span id="monthlyBtn" class="button large" onclick="getMonthly()">월간</span></li>
-										<li><span id="yearlyBtn" class="button large" onclick="getYearly()">연간</span></li>
+									</header> -->
+									<ul class="actions">
+										<li><header class="major" style="height: 4em;"><h2>BoxOffice</h2></header></li>
+										<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+										<li><span id="weeklyBtn" class="button primary" onclick="getWeekly()">주간</span></li>
+										<li><span id="monthlyBtn" class="button" onclick="getMonthly()">월간</span></li>
+										<li><span id="yearlyBtn" class="button" onclick="getYearly()">연간</span></li>
 									</ul>
 									<!-- <div id="boxOffice" class="carousel slide" data-ride="carousel" style="background-image:url('resources/images/pic01.jpg')"></div> -->
 									
@@ -94,25 +93,25 @@
 								
 							<!-- Section -->
 								<section>
-									<header class="major">
+									<header class="major" style="height: 4em;">
 										<h2>관련 YouTube</h2>
 									</header>
 									<div id="youTube"><!-- 420, 314 -->
-									    <iframe id="video0" src="" width="140" height="105"></iframe>
-									    <iframe id="video1" src="" width="140" height="105"></iframe>
-									    <iframe id="video2" src="" width="140" height="105"></iframe>
-									    <iframe id="video3" src="" width="140" height="105"></iframe>
-									    <iframe id="video4" src="" width="140" height="105"></iframe>
-									    <iframe id="video5" src="" width="140" height="105"></iframe>
-									    <iframe id="video6" src="" width="140" height="105"></iframe>
-									    <iframe id="video7" src="" width="140" height="105"></iframe>
-									    <iframe id="video8" src="" width="140" height="105"></iframe>
-									    <iframe id="video9" src="" width="140" height="105"></iframe>
+									    <iframe id="video0" src="" width="420" height="314"></iframe>
+									    <iframe id="video1" src="" width="420" height="314"></iframe>
+									    <iframe id="video2" src="" width="420" height="314"></iframe>
+									    <!--<iframe id="video3" src="" width="420" height="314"></iframe>
+									    <iframe id="video4" src="" width="420" height="314"></iframe>
+									    <iframe id="video5" src="" width="420" height="314"></iframe>
+									    <iframe id="video6" src="" width="420" height="314"></iframe>
+									    <iframe id="video7" src="" width="420" height="314"></iframe>
+									    <iframe id="video8" src="" width="420" height="314"></iframe>
+									    <iframe id="video9" src="" width="420" height="314"></iframe> -->
 									</div>
 								</section>
 							<!-- Section -->
 								<section>
-									<header class="major">
+									<header class="major" style="height: 4em;">
 										<h2>최근 리뷰</h2>
 									</header>
 									<div class="posts">

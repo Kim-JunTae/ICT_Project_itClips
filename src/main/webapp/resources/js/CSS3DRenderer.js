@@ -1,71 +1,50 @@
-import {
-	Matrix4,
-	Object3D,
-	Vector3
-} from "../../../build/three.module.js";
 /**
  * Based on http://www.emagix.net/academic/mscs-project/item/camera-sync-with-css3-and-webgl-threejs
+ * @author mrdoob / http://mrdoob.com/
+ * @author yomotsu / https://yomotsu.net/
  */
 
-var CSS3DObject = function ( element ) {
+THREE.CSS3DObject = function ( element ) {
 
-	Object3D.call( this );
+	THREE.Object3D.call( this );
 
-	this.element = element || document.createElement( 'div' );
+	this.element = element;
 	this.element.style.position = 'absolute';
-	this.element.style.pointerEvents = 'auto';
 
 	this.addEventListener( 'removed', function () {
 
-		this.traverse( function ( object ) {
+		if ( this.element.parentNode !== null ) {
 
-			if ( object.element instanceof Element && object.element.parentNode !== null ) {
+			this.element.parentNode.removeChild( this.element );
 
-				object.element.parentNode.removeChild( object.element );
-
-			}
-
-		} );
+		}
 
 	} );
 
 };
 
-CSS3DObject.prototype = Object.assign( Object.create( Object3D.prototype ), {
+THREE.CSS3DObject.prototype = Object.create( THREE.Object3D.prototype );
+THREE.CSS3DObject.prototype.constructor = THREE.CSS3DObject;
 
-	constructor: CSS3DObject,
+THREE.CSS3DSprite = function ( element ) {
 
-	copy: function ( source, recursive ) {
-
-		Object3D.prototype.copy.call( this, source, recursive );
-
-		this.element = source.element.cloneNode( true );
-
-		return this;
-
-	}
-
-} );
-
-var CSS3DSprite = function ( element ) {
-
-	CSS3DObject.call( this, element );
+	THREE.CSS3DObject.call( this, element );
 
 };
 
-CSS3DSprite.prototype = Object.create( CSS3DObject.prototype );
-CSS3DSprite.prototype.constructor = CSS3DSprite;
+THREE.CSS3DSprite.prototype = Object.create( THREE.CSS3DObject.prototype );
+THREE.CSS3DSprite.prototype.constructor = THREE.CSS3DSprite;
 
 //
 
-var CSS3DRenderer = function () {
+THREE.CSS3DRenderer = function () {
 
-	var _this = this;
+	console.log( 'THREE.CSS3DRenderer', THREE.REVISION );
 
 	var _width, _height;
 	var _widthHalf, _heightHalf;
 
-	var matrix = new Matrix4();
+	var matrix = new THREE.Matrix4();
 
 	var cache = {
 		camera: { fov: 0, style: '' },
@@ -81,7 +60,6 @@ var CSS3DRenderer = function () {
 
 	cameraElement.style.WebkitTransformStyle = 'preserve-3d';
 	cameraElement.style.transformStyle = 'preserve-3d';
-	cameraElement.style.pointerEvents = 'none';
 
 	domElement.appendChild( cameraElement );
 
@@ -177,15 +155,13 @@ var CSS3DRenderer = function () {
 
 	}
 
-	function renderObject( object, scene, camera, cameraCSSMatrix ) {
+	function renderObject( object, camera, cameraCSSMatrix ) {
 
-		if ( object instanceof CSS3DObject ) {
-
-			object.onBeforeRender( _this, scene, camera );
+		if ( object instanceof THREE.CSS3DObject ) {
 
 			var style;
 
-			if ( object instanceof CSS3DSprite ) {
+			if ( object instanceof THREE.CSS3DSprite ) {
 
 				// http://swiftcoder.wordpress.com/2008/11/25/constructing-a-billboard-matrix/
 
@@ -227,21 +203,17 @@ var CSS3DRenderer = function () {
 
 			}
 
-			element.style.display = object.visible ? '' : 'none';
-
 			if ( element.parentNode !== cameraElement ) {
 
 				cameraElement.appendChild( element );
 
 			}
 
-			object.onAfterRender( _this, scene, camera );
-
 		}
 
 		for ( var i = 0, l = object.children.length; i < l; i ++ ) {
 
-			renderObject( object.children[ i ], scene, camera, cameraCSSMatrix );
+			renderObject( object.children[ i ], camera, cameraCSSMatrix );
 
 		}
 
@@ -249,8 +221,8 @@ var CSS3DRenderer = function () {
 
 	var getDistanceToSquared = function () {
 
-		var a = new Vector3();
-		var b = new Vector3();
+		var a = new THREE.Vector3();
+		var b = new THREE.Vector3();
 
 		return function ( object1, object2 ) {
 
@@ -269,7 +241,7 @@ var CSS3DRenderer = function () {
 
 		scene.traverse( function ( object ) {
 
-			if ( object instanceof CSS3DObject ) result.push( object );
+			if ( object instanceof THREE.CSS3DObject ) result.push( object );
 
 		} );
 
@@ -309,18 +281,14 @@ var CSS3DRenderer = function () {
 				domElement.style.WebkitPerspective = fov + 'px';
 				domElement.style.perspective = fov + 'px';
 
-			} else {
-
-				domElement.style.WebkitPerspective = '';
-				domElement.style.perspective = '';
-
 			}
 
 			cache.camera.fov = fov;
 
 		}
 
-		if ( scene.autoUpdate === true ) scene.updateMatrixWorld();
+		scene.updateMatrixWorld();
+
 		if ( camera.parent === null ) camera.updateMatrixWorld();
 
 		if ( camera.isOrthographicCamera ) {
@@ -346,7 +314,7 @@ var CSS3DRenderer = function () {
 
 		}
 
-		renderObject( scene, scene, camera, cameraCSSMatrix );
+		renderObject( scene, camera, cameraCSSMatrix );
 
 		if ( isIE ) {
 
@@ -361,5 +329,3 @@ var CSS3DRenderer = function () {
 	};
 
 };
-
-export { CSS3DObject, CSS3DSprite, CSS3DRenderer };
