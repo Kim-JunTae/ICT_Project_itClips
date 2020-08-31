@@ -4,17 +4,25 @@ package com.ict.itClips;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import mybatis.dao.BoxOfficeDAO;
+import mybatis.vo.BoxOfficeVO;
 import spring.util.Jsoup;
 import spring.util.KOFIC_API;
 
 @Controller
 public class BoxOfficeController {
+	
+	@Autowired
+	BoxOfficeDAO boxOfficeDao;
 	
 	@ResponseBody
 	@GetMapping(value="/boxOfficeJSON1", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -49,6 +57,16 @@ public class BoxOfficeController {
 		List<Map<String, String>> result = jsoup.searchYearlyBoxOffice();
 		
 		//System.out.println(result);
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+	
+	@ResponseBody
+	@GetMapping(value="/getBoxOfficeJSON", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<BoxOfficeVO[]> getBoxOfficeList() throws Exception{
+		
+		BoxOfficeVO[] result = boxOfficeDao.getBoxOfficeList();
+		
+		System.out.println(result);
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	

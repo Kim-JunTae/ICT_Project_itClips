@@ -45,4 +45,18 @@ public class BoxOfficeDAO {
 		
 		return ar;
 	}
+	
+	//박스오피스 정보 리스트 가져오기
+	public BoxOfficeVO[] getMovieIdList() {
+		BoxOfficeVO[] ar = null;
+		
+		List<BoxOfficeVO> list = template.selectList("boxOffice.getMovieIdList");
+		if(list != null && list.size() > 0) {
+			ar = new BoxOfficeVO[list.size()];
+			list.toArray(ar);
+		}
+		
+		return ar;
+	}
+	
 }
