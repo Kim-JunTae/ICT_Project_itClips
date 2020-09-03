@@ -16,20 +16,20 @@
 
 				<!-- Header -->
 				<header id="header">
-					<h1><a href="#">itClips</a></h1>
-					<p>Movie Platform &nbsp;&bull;&nbsp; ICT_TEAM 1 &nbsp;&bull;&nbsp; KimJunTae, JungHyunJin</p>
+					<h1>itClips</h1>
+					<p>Movie Platform &nbsp;&bull;&nbsp; ICT_TEAM 1 &nbsp;&bull;&nbsp; KimJunTae</p>
 					<nav>
 						<ul>
-							<li><a href="#" class="icon solid fa-icons"><span class="label">Creator</span></a></li>
+							<li><a href="adminHome" class="icon solid fa-cog"><span class="label">Admin</span></a></li>
 							<li><a href="userHome" class="icon solid fa-video"><span class="label">User</span></a></li>
+							<li><a href="https://github.com/Kim-JunTae/ICT_Project_itClips" class="icon brands fa-github"><span class="label">Github</span></a></li>
 						</ul>
 					</nav>
 				</header>
 
 				<!-- Footer -->
 				<footer id="footer">
-					<span class="copyright">&copy; itClips. 2020.08 <a href="#">Go Admin Page</a></span>
-					<a href="https://github.com/Kim-JunTae/ICT_Project_itClips" class="icon brands fa-github"><span class="label">Github</span></a>
+					<span class="copyright">&copy; itClips. 2020.08</span>
 				</footer>
 
 			</div>

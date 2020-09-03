@@ -4,7 +4,9 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:util="http://www.springframework.org/schema/util"
 	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
 	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
@@ -36,6 +38,28 @@
 		<constructor-arg ref="factory"/>
 	</bean>
 	
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<!-- <property name="driverClassName"
+				  value="oracle.jdbc.OracleDriver"></property>
+		<property name="jdbcUrl"
+				  value="jdbc:oracle:thin:@localhost:1521:xe"></property> -->
+		<property name="driverClassName"
+				  value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+		<property name="jdbcUrl"
+				  value="jdbc:log4jdbc:oracle:thin:@localhost:1521:xe"></property>		  
+		<property name="username" value="testdb"></property>
+		<property name="password" value="testdb1234"></property>
+	</bean>
+	
+	<!-- HikariCP configuration -->
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+		  destroy-method="close">
+		<constructor-arg ref="hikariConfig"/>
+	</bean>
+	
+	<mybatis-spring:scan base-package="com.ict.mapper"/>
+	<context:component-scan base-package="com.ict.service"></context:component-scan>
+		
 	<!-- DAO : userDao, categoryDao, boxOfficeDao, youTubeDao, reviewDao -->
 	<bean id="userDao" class="mybatis.dao.UserDAO"/>
 	<bean id="categoryDao" class="mybatis.dao.CategoryDAO"/>
@@ -49,4 +73,5 @@
  	<task:executor id="gsTaskExecutor" pool-size="10" />
  	<task:annotation-driven executor="gsTaskExecutor" scheduler="gsScheduler" />
  	<context:component-scan base-package="spring.util.Scheduler"></context:component-scan>	
+
 </beans>
